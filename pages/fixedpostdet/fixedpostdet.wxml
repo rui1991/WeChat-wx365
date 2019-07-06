@@ -1,0 +1,12 @@
+<view class="content">
+  <view class="title">
+    <text class="price">时间</text>
+    <text class="price">状态</text>
+  </view>
+  <view class="item" wx:for="{{ list }}" wx:key="atime">
+    <text class="price">{{ index + 1 }}. {{ item.times }}</text>
+    <text class="price blue" wx:if="{{ type === 0 }}">{{ item.sucess_record }}</text>
+    <text class="price red" wx:if="{{ type === 1 }}">{{ item.failed_record }}</text>
+    <text class="price red" wx:if="{{ type === 2 }}">{{ item.abnormal_record }}</text>
+  </view>
+</view>

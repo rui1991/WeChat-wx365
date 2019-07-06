@@ -1,0 +1,55 @@
+<view class="page">
+  <view class="search-name">
+    <van-search
+      value="{{ nowSearchName }}"
+      placeholder="请输入人员名称"
+      use-action-slot
+      bind:change="onChange"
+      bind:search="onSearch">
+      <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </view>
+  <navigator class="filtro" url="/pages/callselect/callselect?startDate={{ startDate }}&endDate={{ endDate }}&resultIndex={{ resultIndex }}&result={{ result }}&resultName={{ resultName }}">
+    <van-row custom-class="search">
+      <van-col span="6" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item">
+        <text class="title">点名结果</text>
+        <text class="txt">{{ resultName }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'>
+    <navigator class='item' wx:for="{{ callnames }}" url="/pages/callnamedet/callnamedet?uid={{item.user_id}}&date={{item.adate}}">
+       <view class="title">{{ item.user_name }}</view>
+       <view class='detail'>
+        <view class='detail-item'>
+          <text class='name'>日期：</text>
+          <text class='price'>{{ item.adate }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>点名次数：</text>
+          <text class='price'>{{ item.sf }}次</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>点名结果：</text>
+          <text class='price' wx:if="{{ item.over == 0 }}">失败</text>
+          <text class='price' wx:elif="{{ item.over == 1 }}">成功</text>
+          <text class='price' wx:else></text>
+        </view>
+       </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>

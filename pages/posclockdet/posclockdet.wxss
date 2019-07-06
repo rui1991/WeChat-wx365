@@ -1,0 +1,30 @@
+.content{
+  background-color: #ffffff;
+}
+
+.content .title, .content .item{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  color: #686868;
+  font-size: 28rpx;
+}
+.content .name {
+  width: 150rpx;
+}
+.content .time {
+  text-align: center;
+  width: 170rpx;
+}
+.content .duration {
+  text-align: center;
+  flex-grow: 1;
+}
+.content .item .blue{
+  color: #4984ef;
+}
+.content .item .red{
+  color: red;
+}

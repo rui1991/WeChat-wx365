@@ -1,0 +1,59 @@
+<view class="page">
+  <navigator class="filtro" url="/pages/baseselect/baseselect?startDate={{ startDate }}&endDate={{ endDate }}">
+    <van-row custom-class="search">
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'>
+    <navigator class='item' wx:for="{{ events }}" wx:key="te_id" url="/pages/eventdet/eventdet?id={{item.te_id}}&state={{item.event_state}}">
+     <view class="title">{{ item.event_title }}</view>
+     <view class='detail'>
+      <view class='detail-item'>
+        <text class='name'>事件类型：</text>
+        <text class='price' wx:if="{{ item.event_type == 0 }}">设备</text>
+        <text class='price' wx:elif="{{ item.event_type == 1 }}">公告</text>
+        <text class='price' wx:elif="{{ item.event_type == 6 }}">结单</text>
+        <text class='price' wx:else></text>
+      </view>
+      <view class='detail-item'>
+        <text class='name'>事件状态：</text>
+        <text class='price' wx:if="{{ item.event_state == 1 }}">已处理</text>
+        <text class='price' wx:elif="{{ item.event_state == 2 }}">未处理</text>
+        <text class='price' wx:else></text>
+      </view>
+      <view class='detail-item'>
+        <text class='name'>紧急程度：</text>
+        <text class='price' wx:if="{{ item.event_level == 0 }}">一般</text>
+        <text class='price' wx:elif="{{ item.event_level == 1 }}">重要</text>
+        <text class='price' wx:elif="{{ item.event_level == 2 }}">紧急</text>
+        <text class='price' wx:else></text>
+      </view>
+      <view class='detail-item'>
+        <text class='name'>创建人：</text>
+        <text class='price'>{{ item.user_name }}</text>
+      </view>
+      <view class='detail-item'>
+        <text class='name'>创建时间：</text>
+        <text class='price'>{{ item.create_time }}</text>
+      </view>
+      <view class='detail-region'>
+        <text class='name'>事件内容：</text>
+        <text class='price'>{{ item.event_content }}</text>
+      </view>
+     </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>

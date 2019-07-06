@@ -1,0 +1,45 @@
+<view class="page">
+  <navigator class="filtro" url="/pages/baseselect/baseselect?startDate={{ startDate }}&endDate={{ endDate }}">
+    <van-row custom-class="search">
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'> 
+    <navigator class='item' wx:for="{{ approvals }}" wx:key="adt_id" url="/pages/approvaldet/approvaldet?id={{item.adt_id}}">
+       <view class="title" wx:if="{{ item.apply_type === 0 }}">{{ item.apply_user_name }}的巡检补卡申请</view>
+       <view class="title" wx:elif="{{ item.apply_type === 1 }}">{{ item.apply_user_name }}的工单超时申请</view>
+       <view class="title" wx:elif="{{ item.apply_type === 2 }}">{{ item.apply_user_name }}的上班补卡申请</view>
+       <view class="title" wx:elif="{{ item.apply_type === 3 }}">{{ item.apply_user_name }}的请假申请</view>
+       <view class="title" wx:elif="{{ item.apply_type === 4 }}">{{ item.apply_user_name }}的下班补卡申请</view>
+       <view class='detail'>
+        <view class='detail-item'>
+          <text class='name'>原因：</text>
+          <text class='price'>{{ item.apply_reason }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>申请时间：</text>
+          <text class='price'>{{ item.apply_time }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>审批状态：</text>
+          <text class='price' wx:if="{{ item.audit_state === 0 }}">未审批</text>
+          <text class='price' wx:elif="{{ item.audit_state === 1 }}">通过</text>
+          <text class='price' wx:elif="{{ item.audit_state === 2 }}">不通过</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>

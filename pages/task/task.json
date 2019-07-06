@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "巡检查询",
+  "enablePullDownRefresh": true, 
+  "onReachBottomDistance": 20,
+  "usingComponents": {
+    "van-row": "../../miniprogram_npm/vant-weapp/row/index", 
+    "van-col": "../../miniprogram_npm/vant-weapp/col/index"
+  }
+}

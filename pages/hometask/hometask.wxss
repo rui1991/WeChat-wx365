@@ -1,0 +1,15 @@
+@import "../../assets/css/list.wxss";
+
+.pandect{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+}
+.pandect .item{
+  flex-grow: 1;
+  font-size: 28rpx;
+  color: #272727;
+}
+.list{
+  margin-top: 0; 
+}

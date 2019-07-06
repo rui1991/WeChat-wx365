@@ -1,0 +1,29 @@
+<view class="content">
+  <view class="title">
+    <text class="price name">姓名</text>
+    <text class="price time">进入时间</text>
+    <text class="price time">离开时间</text>
+    <text class="price duration">停留时间（分）</text>
+  </view>
+  <view class="item" wx:for="{{ list }}" wx:key="atime">
+    <text class="price name">{{ index + 1 }}. {{ item.user_name }}</text>
+    <text class="price time">{{ date_util.time(item.in_time) }}</text>
+    <text class="price time">{{ date_util.time(item.out_time) }}</text>
+    <text class="price duration">{{ item.wait_time }}</text>
+  </view>
+</view>
+
+<wxs module="date_util">
+  // 这里不支持一些新特性    
+  module.exports = {
+    time: function (str) {  
+      if (!str){
+        return ''
+      }
+      var firstIndex = str.indexOf(' ')
+      var lastIndex = str.lastIndexOf(':')
+      var formatTime = str.substring(firstIndex+1, lastIndex)
+      return formatTime
+    }
+  }
+</wxs>

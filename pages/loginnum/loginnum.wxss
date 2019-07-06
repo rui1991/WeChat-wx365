@@ -1,0 +1,36 @@
+.pandect{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+}
+.pandect .item{
+  flex-grow: 1;
+  font-size: 28rpx;
+  color: #272727;
+}
+.pandect .line{
+  padding: 0 10rpx;
+}
+
+.content{
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+.content .title{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #272727; 
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.list .item{
+  margin-right: 40rpx;
+  font-size: 28rpx;
+  color: #686868; 
+}

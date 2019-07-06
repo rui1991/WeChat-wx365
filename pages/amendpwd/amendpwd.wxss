@@ -1,0 +1,19 @@
+.page{
+  background-color: #ffffff;
+}
+
+.hint{
+  height: 80rpx;
+  padding-left: 30rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #686868;
+}
+
+.operate{
+  margin-top: 200rpx;
+}
+.operate button{
+  background-color: #3190e7;
+  color: #ffffff;
+}

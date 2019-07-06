@@ -1,0 +1,32 @@
+<view class='page'>
+  <van-field
+    value="{{ oldPwd }}"
+    type="password"
+    label="原密码"
+    placeholder="请输入原始密码"
+    required
+    bind:input="oldPassword"
+  />
+  <van-field
+    value="{{ nowPwd1 }}"
+    type="password"
+    label="新密码"
+    placeholder="请输入新密码"
+    required
+    bind:input="nowPassword1"
+  />
+  <van-field
+    value="{{ nowPwd2 }}"
+    type="password"
+    label="验证密码"
+    placeholder="请再次输入新密码"
+    required
+    border="{{ false }}"
+    bind:input="nowPassword2"
+  />
+</view>
+<text class='hint'>密码只支持6-18个数字或字母！</text>
+
+<view class="operate container">
+  <button bindtap="amendConfirm">确  定</button>
+</view>

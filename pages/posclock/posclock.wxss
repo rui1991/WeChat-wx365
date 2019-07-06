@@ -1,0 +1,51 @@
+@import "../../assets/css/filtro.wxss";
+
+.filtro{
+  top: 112rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+.search-name {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  height: 112rpx;
+}
+.search-name .van-search__content {
+  border: 1rpx solid #d1d3d4;
+  border-radius: 40rpx;
+  background-color: #ffffff;
+}
+
+.list {
+  padding-top: 232rpx;
+}
+.list .item{
+  display: flex;
+  flex-direction: column;
+  border-radius: 12rpx;
+  background: #ffffff;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+}
+.list .item .title{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #272727; 
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.list .item .detail{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 30rpx 0;
+}
+.list .item .detail-title, .list .item .detail-item{
+  display: flex;
+  justify-content: space-between;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #272727;
+}

@@ -1,0 +1,44 @@
+<view class="page">
+  <navigator class="filtro" url="/pages/baseselect/baseselect?startDate={{ startDate }}&endDate={{ endDate }}">
+    <van-row custom-class="search">
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'>
+    <view class='item' wx:for="{{ fixedposts }}" wx:key="date">
+      <view class="title">{{ item.position_name }}</view>
+      <view class="detail"> 
+        <view class='detail-item bd-bottom'>
+          <text class="name">日期</text>
+          <text class='price'>{{ item.date }}</text> 
+        </view>
+        <navigator class='detail-item bd-bottom' url="/pages/fixedpostdet/fixedpostdet?posid={{item.position_id}}&date={{ item.date }}&type=0">
+          <text class="name">打卡成功数</text>
+          <text class='price blue'>{{ item.sucess_size }}次</text>
+        </navigator>
+        <navigator class='detail-item bd-bottom' url="/pages/fixedpostdet/fixedpostdet?posid={{item.position_id}}&date={{ item.date }}&type=1">
+          <text class="name">未打卡数</text>
+          <text class='price red'>{{ item.failed_size }}次</text>
+        </navigator>
+        <navigator class='detail-item bd-bottom' url="/pages/fixedpostdet/fixedpostdet?posid={{item.position_id}}&date={{ item.date }}&type=2">
+          <text class="name">打卡异常数</text>
+          <text class='price red'>{{ item.ab_size }}次</text>
+        </navigator>
+      </view>
+    </view>
+
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>

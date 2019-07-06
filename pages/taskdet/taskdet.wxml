@@ -1,0 +1,61 @@
+<view class="page">
+  <view class="content">
+    <view class="item">
+      <text class='name'>项目名称</text>
+      <text class='price'>{{ project }}</text>
+    </view>
+     <view class="item">
+      <text class='name'>任务名称</text>
+      <text class='price'>{{ task }}</text> 
+    </view>
+    <view class="item">
+      <text class='name'>执行时段</text>
+      <text class='price'>{{ timePar }}</text>
+    </view>
+    <view class="item" wx:if="{{ groupId }}">
+      <text class='name'>执行组</text>
+      <text class='price'>{{ groupName }}</text>
+    </view>
+    <view class="item" wx:if="{{ !groupId }}">
+      <text class='name'>执行角色</text>
+      <text class='price'>{{ roles }}</text>
+    </view>
+    <view class="item" wx:if="{{ !groupId }}">
+      <text class='name'>执行人</text>
+      <text class='price'>{{ executor }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>执行状态</text>
+      <text class='price' wx:if="{{ exeState === 0 }}">已完成</text>
+      <text class='price' wx:elif="{{ exeState === 1 }}">未领取</text>
+      <text class='price' wx:elif="{{ exeState === 2 }}">已领取</text>
+      <text class='price' wx:elif="{{ exeState === 3 }}">未完成</text>
+      <text class='price' wx:elif="{{ exeState === 4 }}">异常</text>
+    </view>
+    <view class="item">
+      <text class='name'>完成度</text>
+      <text class='price'>{{ fulfilLlimit }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>巡检顺序</text>
+      <text class='price' wx:if="{{ order === 0 }}">随机顺序</text>
+      <text class='price' wx:elif="{{ order === 1 }}">固定顺序</text>
+    </view>
+  </view>
+  
+  <view class='positions'>
+    <view class='pos-item' wx:for="{{ positions }}" wx:key="position_id">
+      <view class='title'>
+        <text class='name'>{{ item.position_name }}</text>
+        <text class='price' wx:if="{{ item.check_time }}">{{ item.check_time }}</text>
+      </view>
+      <view class='case'>
+        <text class='green' wx:if="{{ item.record_state === 0 }}">正常</text>
+        <text class='orange' wx:elif="{{ item.record_state === 1 || item.record_state === 2 }}">异常</text>
+        <text class='gray' wx:else>未同步</text>
+        <text wx:if="{{ item.template_id }}">{{ item.template_name }}</text>
+        <text wx:else>无关联任务</text>
+      </view>
+    </view>
+  </view>
+</view>

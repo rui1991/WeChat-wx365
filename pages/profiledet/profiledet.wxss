@@ -1,0 +1,8 @@
+/* pages/profiledet/profiledet.wxss */
+@import "../../assets/css/details.wxss";
+
+.content .item image{
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+}

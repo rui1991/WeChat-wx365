@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="pandect container">
+    <view class="item"> 
+      <text>任务总数：{{ allNUm }}</text>
+    </view>
+    <view class="item">
+      <text>完成数量：{{ finish }}</text>
+    </view>
+    <view class="item">
+      <text>未完成数量：{{ undone }}</text>
+    </view>
+  </view>
+  <view class="list container">
+    <navigator class='item' wx:for="{{ undones }}" wx:key="id_id" url="/pages/taskdet/taskdet?id={{ item.id_id }}">
+      <view class="title">{{ item.project_name }}</view>
+      <view class='detail'>
+        <view class='detail-region'>
+          <text class='name'>任务名称：</text>
+          <text class='price'>{{ item.plan_name }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>时间段：</text>
+          <text class='price'>{{ date_util.date(item.start_time) }} 至 {{ date_util.date(item.end_time) }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>巡检顺序：</text>
+          <text class='price' wx:if="{{ item.po_desc === 0 }}">随机顺序</text>
+          <text class='price' wx:elif="{{ item.po_desc === 1 }}">固定顺序</text>
+        </view>
+        <view class='detail-item' wx:if="{{item.group_id}}">
+          <text class='name'>执行组：</text>
+          <text class='price'>{{ item.group_name }}</text>
+        </view>
+        <view class='detail-item' wx:if="{{!item.group_id}}">
+          <text class='name'>执行人：</text>
+          <text class='price'>{{ item.user_name }}</text>
+        </view>
+       </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>
+
+<wxs module="date_util">
+  // 这里不支持一些新特性    
+  module.exports = {
+    date: function (time) {   
+      if (!time) { return '' }
+      var firstIndex = time.indexOf('-')
+      var lastIndex = time.lastIndexOf(':')
+      var formatDate = time.substring(firstIndex+1, lastIndex)
+      return formatDate
+    }
+  }
+</wxs>

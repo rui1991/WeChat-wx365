@@ -1,0 +1,62 @@
+/* pages/profile/profile.wxss */
+.basics{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 380rpx;
+  background-color: #3190e7;
+}
+.basics .photo{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6rpx solid #ffffff;
+}
+.basics .photo image{
+  width: 100%;
+  height: 100%;
+}
+.basics .more{
+  margin-top: 30rpx;
+}
+.basics .more text{
+  margin: 0 10rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+}
+.strip{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  margin-top: 20rpx;
+  background-color: #ffffff;
+}
+.strip .img{
+  width: 52rpx;
+  height: 52rpx;
+}
+.strip text{
+  flex-grow: 1;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #272727;
+}
+.strip .icon {
+  display: block;
+  font-size: 32rpx;
+  color: #686868;
+}
+.operate{
+  margin-top: 200rpx;
+}
+.operate button{
+  background-color: #3190e7;
+  color: #ffffff;
+}
+.operate button:after {
+  border: none;
+}

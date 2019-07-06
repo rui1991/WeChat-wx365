@@ -1,0 +1,26 @@
+<view class="content">
+  <view class="item">
+    <text class='name'>头像</text>
+    <image mode="aspectFill" src="{{ photo }}" />
+  </view>
+   <view class="item">
+    <text class='name'>姓名</text>
+    <text class='price'>{{ name }}</text>
+  </view>
+  <view class="item">
+    <text class='name'>手机号</text>
+    <text class='price'>{{ phone }}</text>
+  </view>
+  <view class="item">
+    <text class='name'>所属部门</text>
+    <text class='price'>{{ section }}</text>
+  </view>
+  <view class="item">
+    <text class='name'>用户角色</text>
+    <text class='price'>{{ role }}</text>
+  </view>
+  <view class="item">
+    <text class='name'>授权范围</text>
+    <text class='price'>{{ accredit }}</text>
+  </view>
+</view>

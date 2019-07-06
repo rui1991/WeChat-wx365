@@ -1,0 +1,25 @@
+@import "../../assets/css/filtro.wxss";
+
+@import "../../assets/css/list.wxss";
+
+.filtro{
+  top: 112rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+.search-name {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  height: 112rpx;
+}
+.search-name .van-search__content {
+  border: 1rpx solid #d1d3d4;
+  border-radius: 40rpx;
+  background-color: #ffffff;
+}
+
+.list {
+  padding-top: 232rpx;
+}

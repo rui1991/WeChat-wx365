@@ -1,0 +1,77 @@
+.content{
+  margin-bottom: 20rpx; 
+  font-size: 28rpx;
+  background-color: #ffffff;
+}
+.content .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  color: #686868;
+}
+.content .item .price{
+  max-width: 480rpx;
+  white-space: nowrap;   
+  text-overflow: ellipsis;    
+  overflow: hidden; 
+  color: #272727;
+}
+.content .region{
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  color: #686868;
+}
+.content .region .name{
+  line-height: 80rpx;
+}
+.content .region .price{
+  text-indent: 2em;
+  line-height: 50rpx;
+  color: #272727;
+}
+
+.other{
+  margin-bottom: 20rpx; 
+  background-color: #ffffff;
+}
+.other .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  font-size: 28rpx;
+  color: #272727;
+}
+.other .item .name{
+  max-width: 480rpx;
+  white-space: nowrap;   
+  text-overflow: ellipsis;    
+  overflow: hidden; 
+}
+
+.positions .pos-item{
+  margin-bottom: 20rpx; 
+  background-color: #ffffff;
+}
+.positions .pos-item .title, .positions .pos-item .case{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #272727;
+}
+.positions .pos-item .title .name{
+  max-width: 480rpx;
+  white-space: nowrap;   
+  text-overflow: ellipsis;    
+  overflow: hidden; 
+}

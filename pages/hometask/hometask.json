@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "巡检未完成",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20
+}

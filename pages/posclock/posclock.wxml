@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="search-name">
+    <van-search
+      value="{{ nowSearchName }}"
+      placeholder="请输入地址名称"
+      use-action-slot
+      bind:change="onChange"
+      bind:search="onSearch">
+      <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </view>
+  <navigator class="filtro" url="/pages/posselect/posselect?startDate={{ startDate }}&endDate={{ endDate }}&stateIndex={{ stateIndex }}&state={{ state }}&stateName={{ stateName }}">
+    <van-row custom-class="search">
+      <van-col span="6" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item">
+        <text class="title">打卡状态</text>
+        <text class="txt">{{ stateName }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'>
+    <view class='item' wx:for="{{ posclocks }}" wx:key="date">
+      <view class="title">{{ item.date }}</view>
+      <view class="detail">
+        <view class='detail-title bd-bottom'>
+          <text>地址</text>
+          <text>打卡数量</text>
+        </view>
+        <navigator class='detail-item bd-bottom' wx:for="{{ item.message }}" wx:for-item="itemIn" wx:for-index="indexIn" wx:key="position_id" url="/pages/posclockdet/posclockdet?posid={{itemIn.position_id}}&date={{ item.date }}">
+          <text>{{ indexIn + 1 }}. {{itemIn.position_name}}</text>
+          <text class='blue' wx:if="{{ itemIn.size1 }}">{{ itemIn.size1 }}次</text>
+          <text class='red' wx:else>未打卡</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

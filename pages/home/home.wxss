@@ -1,0 +1,69 @@
+@import "../../assets/css/filtro.wxss";
+
+.filtro .search .item .title, .filtro .search .item .txt {
+  max-width: 240rpx;
+}
+
+.content {
+  padding-top: 100rpx;
+}
+.content .pandect{
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+}
+.content .pandect-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 180rpx;
+}
+.content .pandect-item .num{
+  font-size: 60rpx;
+  color: #3190e7;
+}
+.content .pandect-item .num .unit{
+  font-size: 28rpx;
+}
+.content .pandect-item .title{
+  font-size: 28rpx;
+  color: #272727;
+}
+
+.content .chart{
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+}
+.content .chart .chart-item{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20rpx 30rpx;
+  margin-bottom: 10rpx;
+}
+.content .chart .chart-item .chart-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30rpx;
+}
+.content .chart .chart-item .chart-title .dice{
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #3190e7;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.content .chart .chart-item .chart-title .title{
+  font-size: 28rpx;
+  color: #272727;
+}
+.content .chart .chart-item .graph{
+  width: 100%;
+  height: 320rpx;
+}

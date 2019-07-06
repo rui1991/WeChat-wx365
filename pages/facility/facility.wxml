@@ -1,0 +1,26 @@
+<view class="page">
+  <view class="pandect container">
+    <view class="item">
+      <text>{{ startDate }}</text>
+      <text class="line">—</text>
+      <text>{{ endDate }}</text> 
+    </view>
+    <view class="item">设备数量：<text>{{ num }}</text></view>
+  </view>
+  <view class="content">
+    <view class="title">
+      <text class="price name">设备名称</text>
+      <text class="price mac">mac地址</text>
+      <text class="price state">设备状态</text>
+    </view>
+    <view class="item" wx:for="{{ list }}" wx:key="atime">
+      <text class="price name">{{ index + 1 }}. {{ item.position_name }}</text>
+      <text class="price mac">{{ item.position_mac }}</text>
+      <text class="price state blue" wx:if="{{item.device_state == '0'}}">在线</text>
+      <text class="price state red" wx:elif="{{item.device_state == '1'}}">离线</text>
+      <text class="price state orange" wx:elif="{{item.device_state == '2'}}">电量不足</text>
+      <text class="price" wx:else></text>
+    </view>
+  </view>
+</view>
+

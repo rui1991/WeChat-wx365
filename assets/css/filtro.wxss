@@ -1,0 +1,28 @@
+.filtro{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  height: 100rpx;
+}
+.filtro .search {
+  height: 100%;
+  border-bottom: 1px solid #d1d3d4;
+  background-color: #ffffff;
+}
+.filtro .search .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-right: 1rpx solid #f0f0f0;
+  height: 100%;
+}
+.filtro .search .item .title, .filtro .search .item .txt {
+  white-space: nowrap; 
+  text-overflow: ellipsis;  
+  overflow: hidden;
+  color: #272727;
+  font-size: 24rpx;
+}

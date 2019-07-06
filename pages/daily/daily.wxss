@@ -1,0 +1,23 @@
+/* pages/daily/daily.wxss */
+.grids{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+.grids .item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33.333%;
+  height: 180rpx;
+}
+.grids .item image{
+  width: 72rpx;
+  height: 72rpx;
+}
+.grids .item text{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #686868;
+}

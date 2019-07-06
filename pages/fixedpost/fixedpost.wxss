@@ -1,0 +1,56 @@
+@import "../../assets/css/filtro.wxss";
+
+.filtro .search .item .title, .filtro .search .item .txt {
+  max-width: 240rpx;
+}
+
+.list {
+  padding-top: 120rpx;
+}
+.list .item{
+  display: flex;
+  flex-direction: column;
+  border-radius: 12rpx;
+  background: #ffffff;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+}
+.list .item .title{
+  height: 80rpx;
+  line-height: 80rpx;
+  max-width: 100%;
+  padding: 0 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: #4984ef; 
+  border-bottom: 1rpx solid #f0f0f0;
+} 
+.list .item .detail{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 30rpx 0;
+}
+.list .item .detail-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  color: #686868;
+  font-size: 28rpx;
+}
+.list .item .detail-item .blue{
+  color: #4984ef;
+}
+.list .item .detail-item .red{
+  color: red;
+}
+
+.loadmore {
+  height: 60rpx;
+  color: #686868;
+  font-size: 30rpx;
+  text-align: center;
+}

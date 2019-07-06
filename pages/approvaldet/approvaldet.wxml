@@ -1,0 +1,127 @@
+<view class="page">
+  <view class="content">
+    <view class="item">
+      <text class='name'>项目名称</text>
+      <text class='price'>{{ project }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>申请人</text>
+      <text class='price'>{{ applicant }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>申请时间</text>
+      <text class='price'>{{ appTime }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>申请类型</text>
+      <text class='price' wx:if="{{ genre === 0 }}">巡检补卡</text>
+      <text class='price' wx:elif="{{ genre === 1 }}">工单超时</text>
+      <text class='price' wx:elif="{{ genre === 2 }}">上班补卡</text>
+      <text class='price' wx:elif="{{ genre === 3 }}">请假</text>
+      <text class='price' wx:elif="{{ genre === 4 }}">下班补卡</text>
+    </view>
+    <view wx:if="{{ genre === 0 }}">
+      <view class="item">
+        <text class='name'>任务名称</text>
+        <text class='price'>{{ taskName }}</text>
+      </view>
+      <view class="item">
+        <text class='name'>开始时间</text>
+        <text class='price'>{{ startTime }}</text>
+      </view>
+      <view class="item">
+        <text class='name'>结束时间</text>
+        <text class='price'>{{ endTime }}</text>
+      </view>
+    </view>
+    <view wx:elif="{{ genre === 1 }}">
+      <view class="item">
+        <text class='name'>工单名称</text>
+        <text class='price'>{{ workName }}</text>
+      </view>
+      <view class="item">
+        <text class='name'>创建时间</text>
+        <text class='price'>{{ creTime }}</text>
+      </view>
+    </view>
+    <view wx:elif="{{ genre === 2 }}">
+      <view class="item">
+        <text class='name'>班次名称</text>
+        <text class='price'>{{ shiftName }}</text>
+      </view>
+      <view class="item">
+        <text class='name'>日期</text>
+        <text class='price'>{{ shiftDate }}</text>
+      </view>
+    </view>
+    <view wx:elif="{{ genre === 3 }}">
+      <view class="item">
+        <text class='name'>请假类型</text>  
+        <text class='price' wx:if="{{ leaveType === 1 }}">年休假</text>
+        <text class='price' wx:elif="{{ leaveType === 2 }}">病假</text>
+        <text class='price' wx:elif="{{ leaveType === 3 }}">事假</text>
+        <text class='price' wx:elif="{{ leaveType === 4 }}">婚假</text>
+        <text class='price' wx:elif="{{ leaveType === 5 }}">产假</text>
+        <text class='price' wx:elif="{{ leaveType === 6 }}">其他</text>
+      </view>
+      <view class="item">
+        <text class='name'>开始时间</text>
+        <text class='price'>{{ startTime }}</text>
+      </view>
+      <view class="item">
+        <text class='name'>结束时间</text>
+        <text class='price'>{{ endTime }}</text>
+      </view>
+    </view>
+    <view wx:elif="{{ genre === 4 }}">
+      <view class="item">
+        <text class='name'>班次名称</text>
+        <text class='price'>{{ shiftName }}</text>
+      </view>
+      <view class="item">
+        <text class='name'>日期</text>
+        <text class='price'>{{ shiftDate }}</text>
+      </view>
+    </view>
+    <view class="item">
+      <text class='name'>审批状态</text>  
+      <text class='price' wx:if="{{ auditState === 0 }}">未审批</text>
+      <text class='price' wx:elif="{{ auditState === 1 }}">通过</text>
+      <text class='price' wx:elif="{{ auditState === 2 }}">不通过</text>
+    </view>
+    <view class="item" wx:if="{{ !appState }}">
+      <text class='name'>审批人</text>
+      <text class='price'>{{ approver }}</text>
+    </view>
+    <view class="item" wx:if="{{ !appState }}">
+      <text class='name'>审批时间</text>
+      <text class='price'>{{ auditTime }}</text>
+    </view>
+    <view class="region">
+      <text class='name'>申请原因</text>
+      <text class='price'>{{ cause }}</text>
+    </view>
+    <view class="region" wx:if="{{ !appState }}">
+      <text class='name'>审批意见</text>
+      <text class='price'>{{ appOpinion }}</text>
+    </view>
+  </view>
+
+  <view class='operate' wx:if="{{ appState }}">
+    <view class='btn' data-id="1" bindtap="tapPopout">同意</view>
+    <view class='btn' data-id="2" bindtap="tapPopout">不同意</view>
+  </view>
+  <van-dialog
+    use-slot
+    show="{{ show }}"
+    show-confirm-button
+    show-cancel-button
+    async-close
+    bind:confirm="onConfirm"
+    bind:cancel="onCancel" 
+  >
+   <view class="dialog-box">
+    <textarea value='{{ opinion }}' bindinput="opinionInput" placeholder="请输入审批意见！" />
+   </view>
+  </van-dialog>
+</view> 

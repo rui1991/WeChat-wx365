@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="content">
+    <view class="logo">
+      <image src="../../assets/icon/logo.png"/>
+    </view> 
+    <view class="form container">
+      <label class="item">
+        <image src="../../assets/icon/user.png"/>
+        <input type="number" placeholder="请输入用户名" value="{{ initUserName }}" bindinput="userNameInput" /> 
+      </label>
+      <label class="item">
+        <image src="../../assets/icon/password.png"/>
+        <input type="text" placeholder="请输入密码" password="true" value="{{ initUserPwd }}" confirm-type="done" bindinput="userPwdInput" />
+      </label>
+      <view class="operate">
+        <button bindtap="loginDispose">登  录</button>
+      </view>
+    </view>
+  </view>
+</view>

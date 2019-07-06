@@ -1,0 +1,50 @@
+<view class="page">
+  <view class="pandect container">
+    <text>{{ showStartDate }}</text>
+    <text class="line">—</text>
+    <text>{{ showEndDate }}</text> 
+  </view>
+  <view class='list container'>
+    <navigator class='item' wx:for="{{ checks }}" wx:key="isd_id" url="/pages/checkdet/checkdet?id={{ item.isd_id }}">
+       <view class="title">{{ item.project_name }}</view>
+       <view class='detail'>
+        <view class='detail-item'>
+          <text class='name'>巡检地址：</text>
+          <text class='price'>{{ item.position_name }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>检查项：</text>
+          <text class='price'>{{ item.ins_name }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>执行人：</text>
+          <text class='price'>{{ item.user_name }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>执行时间：</text>
+          <text class='price'>{{ item.modification_time }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>工单状态：</text>
+          <text class='price' wx:if="{{ item.wo_state === 0 }}">待处理</text>
+          <text class='price' wx:elif="{{ item.wo_state === 1 }}">跟进中</text>
+          <text class='price' wx:elif="{{ item.wo_state === 2 }}">结单</text>
+          <text class='price' wx:else>未生成</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>当前处理人：</text>
+          <text class='price'>{{ item.accept_user_name }}</text>
+        </view>
+        <view class='detail-region'>
+          <text class='name'>检查备注：</text>
+          <text class='price'>{{ item.note }}</text>
+        </view>
+       </view>
+       <view class='operate'>
+        <view class='skip' data-posid="{{item.position_id}}" data-insid="{{item.ins_id}}" catchtap="skipRecord">历史记录</view>
+       </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>

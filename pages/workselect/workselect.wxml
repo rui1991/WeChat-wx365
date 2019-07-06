@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="select">
+    <view class="select-item">
+      <text class="title">所属项目</text>
+      <picker class="picker" range-key="project_name" value="{{ proIndex }}" range="{{ projects }}" bindchange="projectChange">
+        <text>{{ proName }}</text>
+      </picker>
+      <van-icon name="arrow" custom-class="icon"/>
+    </view>
+    <view class="select-item">
+      <text class="title">开始日期</text>
+      <picker mode="date" class="picker" value="{{startDate}}" start="2017-01-01"  end="{{ nowDate }}" bindchange="startDateChange">  
+        <text class="picker">{{ startDate }}</text>
+      </picker>
+      <van-icon name="arrow" custom-class="icon"/>
+    </view>
+    <view class="select-item">
+      <text class="title">结束日期</text>
+      <picker mode="date" class="picker" value="{{endDate}}"  start="{{startDate}}" end="2030-01-01" bindchange="endDateChange">  
+        <text>{{ endDate }}</text>
+      </picker>
+      <van-icon name="arrow" custom-class="icon"/>
+    </view>
+    <view class="select-item">
+      <text class="title">工单类型</text>
+      <picker class="picker" range-key="label" value="{{ typeIndex }}" range="{{ types }}" bindchange="typeChange">
+        <text>{{ typeName }}</text>
+      </picker>
+      <van-icon name="arrow" custom-class="icon"/>
+    </view>
+  </view>
+  <view class="operate container">
+    <button class="confirm" bindtap="confirmSkip">确        定</button>
+    <button bindtap="cancelSkip">取        消</button>
+  </view>
+</view> 

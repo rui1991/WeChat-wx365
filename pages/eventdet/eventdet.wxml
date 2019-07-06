@@ -1,0 +1,65 @@
+<view class="page">
+  <view class="base">
+    <view class='img'>
+      <image mode="aspectFill" src="{{ util.icon(reqUrl, icon) }}" />
+    </view>
+    <view class='meta'>
+      <view class='more'>
+        <text class='user'>{{ user }}</text>
+        <text class='nature ordinary' wx:if="{{ level == 0 }}">一般</text>
+        <text class='nature matter' wx:elif="{{ level == 1 }}">重要</text>
+        <text class='nature exigency' wx:elif="{{ level == 2 }}">紧急</text>
+        <text class='nature facility' wx:if="{{ genre == 0 }}">设备</text>
+        <text class='nature notice' wx:elif="{{ genre == 1 }}">公告</text>
+        <text class='nature everyday' wx:elif="{{ genre == 6 }}">日常</text>
+        <text class='nature facility' wx:if="{{ state == 1 }}">已处理</text>
+        <text class='nature notice' wx:elif="{{ state == 2 }}">未处理</text> 
+      </view>
+      <view class='date'>{{ createTime }}</view>
+    </view>
+  </view>
+  <view class="main">
+    <view class='content'>
+      <text class='name'>事件标题</text>
+      <text class='price'>{{ title }}</text>
+    </view>
+    <view class='content'>
+      <text class='name'>事件内容</text>
+      <text class='price'>{{ content }}</text>
+    </view>
+    <view class='images' wx:if="{{ images.length > 0 }}">
+      <view class='item' wx:for="{{images}}" wx:key="*this">
+        <image mode="aspectFill" src="{{ item }}" bindtap="previewHandle" />
+      </view>  
+    </view>
+    <view class='position'>
+      <image mode="aspectFit" src="/assets/icon/position.png" />
+      <text class='price'>{{ position }}</text>
+    </view>
+  </view>
+
+  <view class='consults'> 
+    <view class='title'>已读{{ readUsers.length }}人</view>
+    <view class='readUsers'>
+      <view class='item' wx:for="{{readUsers}}" wx:key="{{ item.recive_uid }}">
+        <view class='img'>
+          <image mode="aspectFill" src="{{ util.icon(reqUrl, item.head_picture) }}"/>
+        </view>
+        <text>{{item.user_name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<wxs module="util">
+  // 这里不支持一些新特性
+  module.exports = {
+    icon: function (reqUrl, url){   
+      if(url){
+        return reqUrl+'/showImage?state=0&fileName='+ url;
+      }else {
+        return '/assets/icon/icon.png';
+      }
+    }
+  }
+</wxs>

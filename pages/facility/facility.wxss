@@ -1,0 +1,50 @@
+.pandect{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+}
+.pandect .item{
+  flex-grow: 1;
+  font-size: 28rpx;
+  color: #272727;
+}
+.pandect .line{
+  padding: 0 10rpx;
+}
+
+.content{
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+.content .title, .content .item{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  color: #686868;
+}
+.content .price{
+  font-size: 28rpx;
+  color: #272727;
+}
+.content .name{
+  width: 240rpx;
+}
+.content .mac{
+  width: 320rpx;
+  text-align: center;
+}
+.content .state{
+  flex-grow: 1;
+  text-align: center;
+}
+.content .item .blue{
+  color: #4984ef;
+}
+.content .item .red{
+  color: red;
+}
+.content .item .orange{
+  color: #ff6000;
+}

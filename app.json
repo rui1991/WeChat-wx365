@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/baseselect/baseselect",
+    "pages/loginnum/loginnum",
+    "pages/staffnum/staffnum",
+    "pages/hometask/hometask",
+    "pages/homecheck/homecheck",
+    "pages/checkdet/checkdet",
+    "pages/checklog/checklog",
+    "pages/facility/facility",
+    "pages/daily/daily",
+    "pages/task/task",
+    "pages/taskdet/taskdet",
+    "pages/approval/approval",
+    "pages/applog/applog",
+    "pages/approvaldet/approvaldet",
+    "pages/event/event",
+    "pages/eventdet/eventdet",
+    "pages/work/work",
+    "pages/workselect/workselect",
+    "pages/workdet/workdet",
+    "pages/workimg/workimg",
+    "pages/callname/callname",
+    "pages/callselect/callselect",
+    "pages/callnamedet/callnamedet",
+    "pages/posclock/posclock",
+    "pages/posselect/posselect",
+    "pages/posclockdet/posclockdet",
+    "pages/fixedpost/fixedpost",
+    "pages/fixedpostdet/fixedpostdet",
+    "pages/profile/profile",
+    "pages/profiledet/profiledet",
+    "pages/amendpwd/amendpwd"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#3190e7",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "e掌巡",
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#bcc0c9",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#a3a5a8",
+    "selectedColor": "#3190e7",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "简报",
+        "iconPath": "assets/tabs/home.png",
+        "selectedIconPath": "assets/tabs/home-active.png"
+      },
+      {
+        "pagePath": "pages/daily/daily",
+        "text": "日常",
+        "iconPath": "assets/tabs/daily.png",
+        "selectedIconPath": "assets/tabs/daily-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/tabs/profile.png",
+        "selectedIconPath": "assets/tabs/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

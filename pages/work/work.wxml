@@ -1,0 +1,53 @@
+<view class="page">
+  <navigator class="filtro" url="/pages/workselect/workselect?startDate={{ startDate }}&endDate={{ endDate }}&typeIndex={{ typeIndex }}&type={{ type }}&typeName={{ typeName }}">
+    <van-row custom-class="search">
+      <van-col span="6" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+      <van-col span="6" custom-class="item">
+        <text class="title">工单类型</text>
+        <text class="txt">{{ typeName }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'>
+    <navigator class='item' wx:for="{{ works }}" wx:key="wo_id" url="/pages/workdet/workdet?id={{item.wo_id}}">
+       <view class="title">{{ item.wo_name }}</view>
+       <view class='detail'>
+        <view class='detail-item'>
+          <text class='name'>工单来源：</text>
+          <text class='price'>{{ item.wo_from }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>创建时间：</text>
+          <text class='price'>{{ item.create_time }}</text>
+        </view>
+         <view class='detail-item'>
+          <text class='name'>创建人：</text>
+          <text class='price'>{{ item.user_name }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>派单时间：</text>
+          <text class='price'>{{ item.dispatch_time }}</text>
+        </view>
+        <view class='detail-item'>
+          <text class='name'>工单状态：</text>
+          <text class='price' wx:if="{{ item.wo_state == 0 }}">待处理</text>
+          <text class='price' wx:elif="{{ item.wo_state == 1 }}">跟进中</text>
+          <text class='price' wx:elif="{{ item.wo_state == 2 }}">结单</text>
+        </view>
+       </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>

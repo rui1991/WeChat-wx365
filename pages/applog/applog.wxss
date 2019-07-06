@@ -1,0 +1,11 @@
+@import "../../assets/css/filtro.wxss";
+
+@import "../../assets/css/list.wxss";
+
+.filtro .search .item .title, .filtro .search .item .txt {
+  max-width: 240rpx;
+}
+
+.list {
+  padding-top: 120rpx;
+}

@@ -1,0 +1,5 @@
+@import "../../assets/css/list.wxss";
+
+.list {
+  padding-top: 20rpx;
+}

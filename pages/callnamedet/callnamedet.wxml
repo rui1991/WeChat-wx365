@@ -1,0 +1,13 @@
+<view class="content">
+  <view class="title">
+    <text class="num"></text>
+    <text class="date">时间</text>
+    <text class="state">状态</text>
+  </view>
+  <view class="item" wx:for="{{ list }}" wx:key="atime">
+    <text class="num">{{ index + 1 }}</text>
+    <text class="date">{{ item.atime }}</text>
+    <text class="state red" wx:if="{{ item.sf === 0 }}">未打卡</text>
+    <text class="state blue" wx:elif="{{ item.sf === 1 }}">已打卡</text>
+  </view>
+</view>

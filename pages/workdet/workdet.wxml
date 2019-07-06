@@ -1,0 +1,87 @@
+<view class="page">
+  <view class="content">
+    <view class="item">
+      <text class='name'>工单名称</text>
+      <text class='price'>{{ name }}</text>
+    </view>
+     <view class="item">
+      <text class='name'>流水号</text>
+      <text class='price'>{{ coding }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>发生位置</text>
+      <text class='price'>{{ position }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>业务类别</text>
+      <text class='price'>{{ category }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>来源</text>
+      <text class='price'>{{ source }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>创建时间</text>
+      <text class='price'>{{ creTime }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>创建人</text>
+      <text class='price'>{{ crePerson }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>当前处理人</text>
+      <text class='price'>{{ nowPerson }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>工单状态</text>
+      <text class='price' wx:if="{{ state === 0 }}">待处理</text>
+      <text class='price' wx:elif="{{ state === 1 }}">跟进中</text>
+      <text class='price' wx:elif="{{ state === 2 }}">结单</text>
+    </view>
+    <view class="region">
+      <text class='name'>说明</text>
+      <text class='price'>{{ explain }}</text>
+    </view> 
+  </view>
+  <view class='img-show' wx:if="{{ images.length > 0 }}">
+    <text class='title'>图片</text>
+    <view class='images'>
+      <view class='item' wx:for="{{images}}" wx:key="*this">
+        <image mode="aspectFill" src="{{ item }}" bindtap="previewHandle" />
+      </view>  
+    </view>
+  </view>
+
+  <view class='logs'>
+    <text class='title'>跟进记录{{ workLog.length }}条</text>
+    <view class='logList'>
+      <view class="item {{ index === workLog.length-1 ? '' : 'bd' }}" wx:for="{{workLog}}" wx:key="perform_time">
+        <view class='when'>
+          <text class='time'>{{ util.time(item.perform_time) }}</text>
+          <text class='date'>{{ util.date(item.perform_time) }}</text>
+        </view>
+        <view class='img'>
+          <image mode="aspectFit" src="{{ index === 0 ? '/assets/icon/course-active.png' : '/assets/icon/course.png' }}" />
+        </view>
+        <view class='details'>
+          <text>{{ item.content }}</text>
+          <navigator class='blue' wx:if="{{ item.head_picture }}" url="/pages/workimg/workimg?url={{item.head_picture}}">查看图片</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<wxs module="util">
+  // 这里不支持一些新特性
+  module.exports = {
+    date: function (time) {   
+      var timeAry = time.split(' ')
+      return timeAry[0]
+    },
+    time: function (time) {   
+      var timeAry = time.split(' ')
+      return timeAry[1]
+    }
+  }
+</wxs>

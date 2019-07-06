@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="grids">
+    <navigator class="item bd-right bd-bottom" url="/pages/task/task">
+      <image src="../../assets/icon/polling.png"/>
+      <text>巡检查询</text>
+    </navigator>
+    <navigator class="item bd-right bd-bottom" url="/pages/approval/approval">
+      <image src="../../assets/icon/flow.png"/>
+      <text>流程审批</text>
+    </navigator>
+    <navigator class="item bd-bottom" url="/pages/applog/applog">
+      <image src="../../assets/icon/record.png"/>
+      <text>处理记录</text>
+    </navigator>
+    <navigator class="item bd-right bd-bottom" url="/pages/event/event">
+      <image src="../../assets/icon/event.png"/>
+      <text>事件查询</text>
+    </navigator>
+    <navigator class="item bd-right bd-bottom" url="/pages/work/work">
+      <image src="../../assets/icon/work.png"/>
+      <text>工单查询</text>
+    </navigator>
+    <navigator class="item bd-bottom" url="/pages/callname/callname">
+      <image src="../../assets/icon/callname.png"/>
+      <text>点名查询</text>
+    </navigator>
+    <navigator class="item bd-right" url="/pages/posclock/posclock">
+      <image src="../../assets/icon/location.png"/>
+      <text>位置打卡记录</text>
+    </navigator>
+    <navigator class="item bd-right" url="/pages/fixedpost/fixedpost">
+      <image src="../../assets/icon/clockin.png"/>
+      <text>固定岗查询</text>
+    </navigator>
+    <view class="item">
+      <image src="../../assets/icon/more.png"/>
+    </view>
+  </view>
+</view>

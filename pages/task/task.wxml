@@ -1,0 +1,67 @@
+<view class="page">
+  <navigator class="filtro" url="/pages/baseselect/baseselect?startDate={{ startDate }}&endDate={{ endDate }}">
+    <van-row custom-class="search">
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class='list container'>
+    <navigator class='item' wx:for="{{ tasks }}" wx:key="id_id" url="/pages/taskdet/taskdet?id={{item.id_id}}">
+     <view class="title">{{ item.plan_name }}</view>
+     <view class='detail'>
+      <view class='detail-item' wx:if="{{item.group_id}}">
+        <text class='name'>执行组：</text>
+        <text class='price'>{{ item.group_name }}</text>
+      </view>
+      <view class='detail-item' wx:if="{{!item.group_id}}">
+        <text class='name'>执行人：</text>
+        <text class='price'>{{ item.user_name }}</text>
+      </view>
+      <view class='detail-item'>
+        <text class='name'>执行时间：</text>
+        <text class='price'>{{ date_util.date(item.start_time) }} 至 {{ date_util.date(item.end_time) }}</text>
+      </view>
+      <view class='detail-item' wx:if="{{!item.group_id}}">
+        <text class='name'>执行角色：</text>
+        <text class='price'>{{ item.role_name }}</text>
+      </view>
+      <view class='detail-item'>
+        <text class='name'>任务进度：</text>
+        <text class='price'>{{ date_util.formatNum(item.continue_process) }}</text>
+      </view>
+     </view>
+    </navigator>
+  </view>
+  <view wx:if="{{hasMore}}" class="loadmore">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>
+
+<wxs module="date_util">
+  // 这里不支持一些新特性    
+  module.exports = {
+    date: function (time) {
+      if (!time) { return '' }  
+      var firstIndex = time.indexOf('-')
+      var lastIndex = time.lastIndexOf(':')
+      var formatDate = time.substring(firstIndex+1, lastIndex)
+      return formatDate
+    },
+    formatNum: function (num) {
+      if (!num){
+        return '0%'
+      }
+      var value = parseFloat(num)
+      return Math.round(value * 100) + '%';
+    }
+  }
+</wxs>

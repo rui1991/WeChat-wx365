@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="pandect container">
+    <view class="item">
+      <text>{{ startDate }}</text>
+      <text class="line">—</text>
+      <text>{{ endDate }}</text> 
+    </view>
+    <view class="item">在线人数：<text>{{ num }}</text></view>
+  </view>
+  <view class="content">
+    <view class="title container bd-bottom">{{ proName }}</view>
+    <view class="list container">
+    <text class="item" wx:for="{{ users }}" wx:key="user_id" >{{ item.user_name }}</text>
+  </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<view class="page">
+  <view class="content">
+    <view class="item">
+    <text class='name'>项目名称</text>
+    <text class='price'>{{ project }}</text>
+    </view>
+     <view class="item">
+      <text class='name'>执行时间</text>
+      <text class='price'>{{ exeTime }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>巡检地址</text>
+      <text class='price'>{{ position }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>执行人</text>
+      <text class='price'>{{ exePerson }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>检查项</text>
+      <text class='price'>{{ checkItem }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>执行结果</text>
+      <text class='price' wx:if="{{ exeResult === 0 }}">未巡查</text>
+      <text class='price' wx:elif="{{ exeResult === 1 }}">正常</text>
+      <text class='price' wx:elif="{{ exeResult === 2 }}">异常</text>
+      <text class='price' wx:else></text>
+    </view>
+    <view class="region">
+      <text class='name'>检查内容及要求</text>
+      <text class='price'>{{ checkContent }}</text>
+    </view>
+    <view class="region">
+      <text class='name'>备注</text>
+      <text class='price'>{{ remark }}</text>
+    </view>
+  </view>
+  
+  <view class='other'>
+    <view class="item">
+      <text class='name'>工单名称</text>
+      <text class='price'>{{ workName }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>创建人</text>
+      <text class='price'>{{ crePerson }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>创建时间</text>
+      <text class='price'>{{ creTime }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>当前处理人</text>
+      <text class='price'>{{ nowExePerson }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>最后处理时间</text>
+      <text class='price'>{{ lastExePerson }}</text>
+    </view>
+    <view class="item">
+      <text class='name'>完成状态</text>
+      <text class='price' wx:if="{{ finishState === 0 }}">待处理</text>
+      <text class='price' wx:elif="{{ finishState === 1 }}">处理中</text>
+      <text class='price' wx:elif="{{ finishState === 2 }}">已完成</text>
+      <text class='price' wx:else></text>
+    </view>
+  </view>
+
+</view>

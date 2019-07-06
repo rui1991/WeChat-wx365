@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "修改密码",
+  "usingComponents": {
+    "van-field": "../../miniprogram_npm/vant-weapp/field/index"
+  }
+}

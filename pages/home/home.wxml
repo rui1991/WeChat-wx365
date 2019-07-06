@@ -1,0 +1,95 @@
+<view class="page">
+  <navigator class="filtro" url="/pages/baseselect/baseselect?startDate={{ startDate }}&endDate={{ endDate }}">
+    <van-row custom-class="search">
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">所属项目</text>
+        <text class="txt">{{ proName }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item bd-right">
+        <text class="title">开始日期</text>
+        <text class="txt">{{ startDate }}</text>
+      </van-col>
+      <van-col span="8" custom-class="item">
+        <text class="title">结束日期</text>
+        <text class="txt">{{ endDate }}</text>
+      </van-col>
+    </van-row>
+  </navigator>
+  <view class="content">
+    <view class="pandect">
+      <navigator class="pandect-item bd-right bd-bottom" url="/pages/loginnum/loginnum?startDate={{ startDate }}&endDate={{ endDate }}&loginNum={{ loginNum }}">
+        <text class="num">{{ loginNum }}</text>
+        <text class="title">在线人数</text>
+      </navigator>
+      <navigator class="pandect-item bd-right bd-bottom" url="/pages/staffnum/staffnum?startDate={{ startDate }}&endDate={{ endDate }}&staffNum={{ staffNum }}">
+        <text class="num">{{ staffNum }}</text>
+        <text class="title">员工数量</text>
+      </navigator>
+      <navigator class="pandect-item bd-right" url="/pages/daily/daily" open-type="switchTab">
+        <text class="num">{{ workNum }}</text>
+        <text class="title">工单总数</text>
+      </navigator>
+      <navigator class="pandect-item" url="/pages/facility/facility?startDate={{ startDate }}&endDate={{ endDate }}&facilityNum={{ facilityNum }}">
+        <text class="num">{{ facilityNum }}</text>
+        <text class="title">设备数量</text>
+      </navigator>
+    </view>
+    <view style="height: 20rpx; background: #f0f0f0;"></view>
+    <view class="chart">
+      <navigator class="chart-item" url="/pages/hometask/hometask?startDate={{ startDate }}&endDate={{ endDate }}">
+        <view class="chart-title">
+          <view class="dice"></view>
+          <text class="title">巡检任务统计</text>
+        </view>
+        <view class="graph">
+          <ec-canvas id='pol_task_pie' ec="{{ ec }}"></ec-canvas>
+        </view>
+      </navigator>
+      <navigator class="chart-item" url="/pages/homecheck/homecheck?startDate={{ startDate }}&endDate={{ endDate }}">
+        <view class="chart-title">
+          <view class="dice"></view>
+          <text class="title">检查项统计</text>
+        </view>
+        <view class="graph">
+          <ec-canvas id='check_item_pie' ec="{{ ec }}"></ec-canvas>
+        </view>
+      </navigator>
+      <navigator class="chart-item" url="/pages/daily/daily" open-type="switchTab">
+        <view class="chart-title">
+          <view class="dice"></view>
+          <text class="title">工单统计</text>
+        </view>
+        <view class="graph">
+          <ec-canvas id='work_pie' ec="{{ ec }}"></ec-canvas>
+        </view>
+      </navigator>
+      <navigator class="chart-item" url="/pages/daily/daily" open-type="switchTab">
+        <view class="chart-title">
+          <view class="dice"></view>
+          <text class="title">点名管理统计</text>
+        </view>
+        <view class="graph">
+          <ec-canvas id='callname_pie' ec="{{ ec }}"></ec-canvas>
+        </view>
+      </navigator>
+      <navigator class="chart-item" url="/pages/daily/daily" open-type="switchTab">
+        <view class="chart-title">
+          <view class="dice"></view>
+          <text class="title">位置打卡统计</text>
+        </view>
+        <view class="graph">
+          <ec-canvas id='pos_card_pie' ec="{{ ec }}"></ec-canvas>
+        </view>
+      </navigator>
+      <navigator class="chart-item" url="/pages/daily/daily" open-type="switchTab">
+        <view class="chart-title">
+          <view class="dice"></view>
+          <text class="title">固定岗打卡统计</text>
+        </view>
+        <view class="graph">
+          <ec-canvas id='fix_card_pie' ec="{{ ec }}"></ec-canvas>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
